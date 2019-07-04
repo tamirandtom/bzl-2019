@@ -57,14 +57,21 @@
 
 	<div class="lock1"><img src="logo1.svg" alt=""></div>
 	<div class="lock2"><img src="logo2.svg" alt=""></div>
+
 	<div class="lock0"></div>
 	<script type="module">
 		import * as THREE from './three.module.js';
 		import { OBJLoader } from './obj.js';
 		import { CinematicCamera } from './camera.js';
+		import { DeviceOrientationControls } from './doc.js';
 
 
-
+		var isMobile = false;
+	// Detect mobile
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 640) {
+		isMobile = true;
+		console.log('is mobile!');
+	}
 
 		function updateText(n) {
 			document.getElementById("loading").innerHTML = ""+n+"%";
@@ -80,7 +87,7 @@
 		var mouseX = 0, mouseY = 0;
 		var windowHalfX = window.innerWidth / 2;
 		var windowHalfY = window.innerHeight / 2;
-		var object;
+		var object,controls;
 
 
 
@@ -180,6 +187,17 @@
 				object.scale.x = 3.8;
 				object.scale.z = 3.8;
 				scene.add(object);
+
+
+				if (isMobile) {
+			
+				object.scale.z = -3.8;
+			controls = new DeviceOrientationControls(object);
+			console.log('here!');
+		}
+
+
+
 			}
 			var manager = new THREE.LoadingManager(loadModel);
 			// manager.onProgress = function (item, loaded, total) {
@@ -230,9 +248,18 @@
 			// object.rotation.y = 9.5 + mouseX/200;
 			// object.rotation.x = mouseY/500;
 			// object.rotation.y = mouseX;
+
+			if (isMobile && controls) {
+			controls.update();
+
+		}
+
+		else {
 			camera.position.x += (- mouseX - camera.position.x) * .05;
 			camera.position.y += (mouseY - camera.position.y) * .025;
 			camera.lookAt(scene.position);
+		}
+			
 			// if ( camera.postprocessing.enabled ) {
 			// 		camera.renderCinematic( scene, renderer );
 			// 	} else {
