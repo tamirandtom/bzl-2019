@@ -86,22 +86,24 @@
 			var ambientLight = new THREE.AmbientLight(0xccbb55, 0.1);
 			scene.add(ambientLight);
 
-			var ambientLight2 = new THREE.AmbientLight(0xFFDBE2, 0.05);
+			var ambientLight2 = new THREE.AmbientLight(0xFFDBE2, 0.2);
 			scene.add(ambientLight2);
 			
+
+
+
 			var pointLight = new THREE.PointLight(0xFFB6C5, 0.6);
 			pointLight.position.set( 0, 200, 200 )
 			scene.add(pointLight);
 
-
 				
-			var pointLight2 = new THREE.PointLight(0xff5500, 0.6);
+			var pointLight2 = new THREE.PointLight(0xee5500, 0.4);
 			pointLight2.position.set( 500, 0, 100 )
 			scene.add(pointLight2);
 
 
 				
-			var pointLight3 = new THREE.PointLight(0xF0A832, 0.6);
+			var pointLight3 = new THREE.PointLight(0xF0A832, 0.3);
 			pointLight3.position.set( 0, 200, - 100 )
 			scene.add(pointLight3);
 
@@ -118,7 +120,7 @@
 
 			//Face texture
 
-			var faceTexture = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0xffffff, emissive: 0x221100, shininess: 9, flatShading: false });
+			var faceTexture = new THREE.MeshPhongMaterial({ color: 0xFF003F, specular: 0xFFF0EF, emissive: 0x221100, shininess: 12, flatShading: false });
 			//Glasses texture
 
 			var GlassesTexture = new THREE.MeshPhongMaterial({ color: 0x334422, specular: 0xaaaaaa, shininess: 4, flatShading: false });
@@ -146,10 +148,12 @@
 					}
 				});
 				object.position.x = 22;
-				object.position.y = 55;
+				object.position.y = -20;
 				object.position.z = 0;
+
 				object.rotation.y = -9.5;
 				// object.rotation.y = -9;
+				
 				object.scale.y = 3.8;
 				object.scale.x = 3.8;
 				object.scale.z = 3.8;
@@ -172,7 +176,7 @@
 			var loader = new OBJLoader(manager);
 
 			// MODEL HERE
-			loader.load('p4.obj', function (obj) {
+			loader.load('p7.obj', function (obj) {
 				object = obj;
 			document.getElementById("loading").classList.add("hide");
 			}, onProgress, onError);
@@ -201,11 +205,11 @@
 			render();
 		}
 		function render() {
-			object.rotation.y = 9.5 + mouseX/200;
-			object.rotation.x = mouseY/500;
+			// object.rotation.y = 9.5 + mouseX/200;
+			// object.rotation.x = mouseY/500;
 			// object.rotation.y = mouseX;
-			// camera.position.x += (- mouseX - camera.position.x) * .05;
-			// camera.position.y += (mouseY - camera.position.y) * .025;
+			camera.position.x += (- mouseX - camera.position.x) * .05;
+			camera.position.y += (mouseY - camera.position.y) * .025;
 			camera.lookAt(scene.position);
 			// if ( camera.postprocessing.enabled ) {
 			// 		camera.renderCinematic( scene, renderer );
