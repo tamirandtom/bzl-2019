@@ -142,10 +142,9 @@
 			scene.add(camera);
 			// Cloth texture
 			var textureLoader = new THREE.TextureLoader(manager);
-			var texture = textureLoader.load('rr.png');
-			texture.repeat.set(1,1)
-
-			var clothTexture = new THREE.MeshPhongMaterial({ map: texture, specular: 0xffeeee, emissive: 0x111200, shininess: 2, flatShading: false });
+			var texture = textureLoader.load('white.png');
+			// texture.repeat.set(2,2)
+			var clothTexture = new THREE.MeshPhongMaterial({specular: 0xffeeee, emissive: 0x111200,reflectivity:0.3 ,shininess: 2, flatShading: false,map:texture});
 
 			//Face texture
 
