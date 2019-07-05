@@ -176,7 +176,7 @@
 
 					}
 				});
-				object.position.x = 22;
+				object.position.x = 0;
 				object.position.y = 0;
 				object.position.z = 0;
 
@@ -189,9 +189,10 @@
 
 
 				if (isMobile) {
+				object.position.x = 0;
 					camera.setLens( 30 );
-					object.rotation.y = 2.1;
-					object.rotation.x = 1;
+					object.rotation.y = 3.1;
+					object.rotation.x = 1.2;
 
 					var controlGroup = new THREE.Group();
 					controlGroup.add( object );
