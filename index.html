@@ -62,7 +62,7 @@
 	<script type="module">
 		import * as THREE from './three.module.js';
 		import { OBJLoader } from './obj.js';
-		import { CinematicCamera } from './camera.js';
+		// import { CinematicCamera } from './camera.js';
 		import { DeviceOrientationControls } from './doc.js';
 
 
@@ -115,7 +115,7 @@
 			scene.add(camera);
 			// Cloth texture
 			var textureLoader = new THREE.TextureLoader(manager);
-			var texture = textureLoader.load('t.png');
+			var texture = textureLoader.load('cloth.png');
 			// texture.repeat.set(2,2)
 			var clothTexture = new THREE.MeshPhongMaterial({specular: 0xffeeee, emissive: 0x111200,reflectivity:0.3 ,shininess: 2, flatShading: true,map:texture, roughness:0});
 			//Face texture
