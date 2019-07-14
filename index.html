@@ -118,8 +118,8 @@
 			scene.add(pointLight3);
 			scene.add(camera);
 			// Cloth texture
-			var textureLoader = new THREE.TextureLoader(manager);
-			var texture = textureLoader.load('cloth.png');
+			// var textureLoader = new THREE.TextureLoader(manager);
+			// var texture = textureLoader.load('cloth.png');
 
 
 			var texturemapLoader = new THREE.CubeTextureLoader();
@@ -131,11 +131,11 @@
 
 
 			// texture.repeat.set(2,2)
-			var clothTexture = new THREE.MeshPhongMaterial({map:texture, specular: 0xffeeee, emissive: 0x111200,reflectivity:0.3 ,shininess: 2, flatShading: true});
+			var clothTexture = new THREE.MeshPhongMaterial({color:0xeeeeee, specular: 0xffeeee, emissive: 0x111200,reflectivity:0.3 ,shininess: 2, flatShading: true});
 			//Face texture
-			var faceTexture = new THREE.MeshPhongMaterial({reflectivity:0.3, color: 0xFF003F, specular: 0xFFF0EF, emissive: 0x221100, shininess: 12, flatShading: false, envMap: textureCube});
+			var faceTexture = new THREE.MeshPhongMaterial({reflectivity:0.3, color: 0xFF003F, specular: 0xFFF0EF, emissive: 0x221100, shininess: 20, flatShading: false, envMap: textureCube});
 			//Glasses texture
-			var GlassesTexture = new THREE.MeshPhongMaterial({ color: 0x334422, specular: 0xaaaaaa, shininess: 8, flatShading: false });
+			var GlassesTexture = new THREE.MeshPhongMaterial({ color: 0x334422, specular: 0xbbbbbb, shininess: 20, flatShading: false });
 
 			function loadModel() {
 				object.traverse(function (child) {
