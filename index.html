@@ -135,7 +135,7 @@
 			//Face texture
 			var faceTexture = new THREE.MeshPhongMaterial({reflectivity:0.3, color: 0xFF003F, specular: 0xFFF0EF, emissive: 0x221100, shininess: 12, flatShading: false, envMap: textureCube});
 			//Glasses texture
-			var GlassesTexture = new THREE.MeshPhongMaterial({ color: 0x334422, specular: 0xaaaaaa, shininess: 4, flatShading: false });
+			var GlassesTexture = new THREE.MeshPhongMaterial({ color: 0x334422, specular: 0xaaaaaa, shininess: 8, flatShading: false });
 
 			function loadModel() {
 				object.traverse(function (child) {
