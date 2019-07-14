@@ -96,9 +96,9 @@ var DeviceOrientationControls = function ( object ) {
 
 			var beta = device.beta ? (_Math.degToRad( device.beta ) * .2 ) : 0; // X'
 
-			var gamma = device.gamma ? (_Math.degToRad( device.gamma ) * 0.2) : 0; // Y''
+			var gamma = device.gamma ? (_Math.degToRad( device.gamma ) * .2) : 0; // Y''
 
-			var orient = scope.screenOrientation ? _Math.degToRad( scope.screenOrientation ) : 0; // O
+			var orient = scope.screenOrientation ? (_Math.degToRad( scope.screenOrientation ) * .2) : 0; // O
 
 			setObjectQuaternion( scope.object.quaternion, alpha, beta, gamma, orient );
 
